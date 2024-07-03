@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 
 const Page = ({ params }) => {
+  const currentDomain = window.location.hostname;
   const { data: session, status } = useSession();
   const { id } = params;
   const router = useRouter();
@@ -254,7 +255,7 @@ const Page = ({ params }) => {
               Short URL:
             </label>
             <div className="w-[22rem] gap-3 text-lg lg:gap-5 flex flex-col lg:flex-row items-start justify-start lg:justify-between lg:items-center lg:w-[40rem] shadow-lg bg-[#6D5D6E] rounded-2xl p-3 lg:text-3xl text-[#F4EEE0]">
-              <h6 id="shortUrl">https://{process.env.LOCAL_BASE_URL}/{currUrl.shortId}</h6>
+              <h6 id="shortUrl">{currentDomain}/{currUrl.shortId}</h6>
               <button
                 onClick={handleCopyShortUrl}
                 className="bg-[#F4EEE0] text-[#6D5D6E] rounded-lg px-6 py-4 text-bold"
