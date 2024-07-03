@@ -180,7 +180,7 @@ export default function Home() {
           htmlFor="url"
           className="text-[#F4EEE0] mb-3 text-4xl lg:text-8xl text-center font-bold "
         >
-          Your Short's
+          Your Short&apos;s
         </h3>
 
         <div className="my-8 p-4 lg:p-0 overflow-x-scroll w-screen lg:w-[60%]">

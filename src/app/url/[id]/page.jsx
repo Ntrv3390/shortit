@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const { data: session, status } = useSession();
   const { id } = params;
   const router = useRouter();
@@ -338,4 +338,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default Page;

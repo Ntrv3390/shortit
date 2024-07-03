@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const { id } = params;
   useEffect(() => {
     const getBrowserInfo = () => {
@@ -114,4 +114,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default Page;
