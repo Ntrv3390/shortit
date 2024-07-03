@@ -73,11 +73,13 @@ const Page = ({ params }) => {
       let ipAddress = "Unknown";
       let country = "Unknown";
       try {
-        const response = await fetch("http://ip-api.com/json");
+        const response = await fetch("/api/ip");
         const data = await response.json();
-        if (data.status === "success") {
-          ipAddress = data.query;
-          country = data.country;
+        console.log(data);
+        const d = data.data;
+        if (d.error === "false") {
+          ipAddress = d.query;
+          country = d.country;
         }
       } catch (error) {
         throw new Error("Error in redirecting...");
