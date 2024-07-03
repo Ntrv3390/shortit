@@ -75,9 +75,8 @@ const Page = ({ params }) => {
       try {
         const response = await fetch("/api/ip");
         const data = await response.json();
-        console.log(data);
         const d = data.data;
-        if (d.error === "false") {
+        if (data.error === "false") {
           ipAddress = d.query;
           country = d.country;
         }
