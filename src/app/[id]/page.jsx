@@ -66,7 +66,7 @@ const Page = ({ params }) => {
       }
     };
     const redirectUser = (url) => {
-      window.location.href = url;
+      // window.location.href = url;
       return;
     };
     const getIpAddress = async () => {
@@ -80,6 +80,8 @@ const Page = ({ params }) => {
           ipAddress = d.query;
           country = d.country;
         }
+        console.log(data)
+        console.log(d)
       } catch (error) {
         throw new Error("Error in redirecting...");
       }
