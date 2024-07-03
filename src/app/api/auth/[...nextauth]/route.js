@@ -10,6 +10,7 @@ const handleProvider = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
+  secret: process.env.NEXT_PUBLIC_SECRET,
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
       await connectToDB();
