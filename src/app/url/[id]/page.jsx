@@ -267,7 +267,7 @@ const Page = ({ params }) => {
         </div>
         <div className="flex mb-10 flex-col justify-center items-center gap-3">
           <h2 className="text-center mt-10 text-[#F4EEE0] font-bold text-5xl">
-            Analytics
+            Analytics (Currently not accurate.)
           </h2>
           <div className="flex gap-3">
             <p className="text-[#F4EEE0] mt-8 text-4xl">

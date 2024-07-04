@@ -66,25 +66,23 @@ const Page = ({ params }) => {
       }
     };
     const redirectUser = (url) => {
-      // window.location.href = url;
+      window.location.href = url;
       return;
     };
     const getIpAddress = async () => {
       let ipAddress = "Unknown";
       let country = "Unknown";
-      try {
-        const response = await fetch("/api/ip");
-        const data = await response.json();
-        const d = data.data;
-        if (data.error === "false") {
-          ipAddress = d.query;
-          country = d.country;
-        }
-        console.log(data)
-        console.log(d)
-      } catch (error) {
-        throw new Error("Error in redirecting...");
-      }
+      // try {
+      //   const response = await fetch("/api/ip");
+      //   const data = await response.json();
+      //   const d = data.data;
+      //   if (data.error === "false") {
+      //     ipAddress = d.query;
+      //     country = d.country;
+      //   }
+      // } catch (error) {
+      //   throw new Error("Error in redirecting...");
+      // }
       return { ipAddress, country };
     };
     const handleEditUrl = async (analytics) => {
