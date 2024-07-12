@@ -22,7 +22,7 @@ const Page = ({ params }) => {
     const fetchUrl = async () => {
       try {
         const response = await fetch(`/api/url/${id}`);
-        if (!session && !session.user) return;
+        if (!session || !session.user) return;
         const userId = session.user.id;
 
         if (!userId) return;
