@@ -288,7 +288,7 @@ const Page = ({ params }) => {
         </div>
         <div className="flex mb-10 flex-col justify-center items-center gap-3">
           <h2 className="text-center mt-10 text-[#F4EEE0] font-bold text-5xl">
-            Analytics (Currently not accurate.)
+            Analytics
           </h2>
           <div className="flex gap-3">
             <p className="text-[#F4EEE0] mt-8 text-4xl">
@@ -312,32 +312,20 @@ const Page = ({ params }) => {
               <thead className="text-xs bg-[#6D5D6E] uppercase">
                 <tr>
                   <th scope="col" className="px-6 py-3">
-                    {/* Unique IP Addresses */} IP Address
+                    IP Address
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    {/* Unique IP Addresses */} Device Type
+                    Device Type
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    {/* Unique IP Addresses */} Browser
+                    Browser
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    {/* Unique IP Addresses */} Country
+                    Country
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {/* {currUrl &&
-                  currUrl.analytics &&
-                  Array.from(
-                    new Set(currUrl.analytics.map((u) => u.ipAddress))
-                  ).map((ip, index) => (
-                    <tr
-                      key={index}
-                      className="bg-[#F4EEE0] border-b text-[#393646]"
-                    >
-                      <td className="px-6 py-4">{ip}</td>
-                    </tr>
-                  ))} */}
                 {currUrl.analytics &&
                   currUrl.analytics.map((a, index) => (
                     <tr
