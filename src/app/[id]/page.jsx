@@ -72,17 +72,14 @@ const Page = ({ params }) => {
     const getIpAddress = async () => {
       let ipAddress = "Unknown";
       let country = "Unknown";
-      // try {
-      //   const response = await fetch("/api/ip");
-      //   const data = await response.json();
-      //   const d = data.data;
-      //   if (data.error === "false") {
-      //     ipAddress = d.query;
-      //     country = d.country;
-      //   }
-      // } catch (error) {
-      //   throw new Error("Error in redirecting...");
-      // }
+      try {
+        const response = await fetch("https://ipapi.co/json");
+        const data = await response.json();
+        ipAddress = data.ip;
+        country = data.country_name;
+      } catch (error) {
+        throw new Error("Error in redirecting...");
+      }
       return { ipAddress, country };
     };
     const handleEditUrl = async (analytics) => {
