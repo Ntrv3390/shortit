@@ -27,6 +27,7 @@ const Page = ({ params }) => {
           const data = await response.json();
           setCurrUrl(data.userUrls);
           setEditValue(data.userUrls.redirectUrl);
+          console.log(currUrl)
           return;
         }
       } catch (error) {
