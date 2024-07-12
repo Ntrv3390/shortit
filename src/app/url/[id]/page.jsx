@@ -22,12 +22,28 @@ const Page = ({ params }) => {
     const fetchUrl = async () => {
       try {
         const response = await fetch(`/api/url/${id}`);
+        const userId = session.user.id;
+
+        if (!userId) return;
 
         if (response.ok) {
           const data = await response.json();
+          const urlUserId = data.userUrls.createdBy;
+          if (urlUserId !== userId) {
+            toast.error(`You are not authorised to view this.`, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+            return;
+          }
           setCurrUrl(data.userUrls);
           setEditValue(data.userUrls.redirectUrl);
-          console.log(currUrl)
           return;
         }
       } catch (error) {
@@ -256,7 +272,9 @@ const Page = ({ params }) => {
               Short URL:
             </label>
             <div className="w-[22rem] gap-3 text-lg lg:gap-5 flex flex-col lg:flex-row items-start justify-start lg:justify-between lg:items-center lg:w-[40rem] shadow-lg bg-[#6D5D6E] rounded-2xl p-3 lg:text-3xl text-[#F4EEE0]">
-              <h6 id="shortUrl">{currentDomain}/{currUrl.shortId}</h6>
+              <h6 id="shortUrl">
+                {currentDomain}/{currUrl.shortId}
+              </h6>
               <button
                 onClick={handleCopyShortUrl}
                 className="bg-[#F4EEE0] text-[#6D5D6E] rounded-lg px-6 py-4 text-bold"
