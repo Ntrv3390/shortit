@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
+import "../globals.css";
 
 const Page = ({ params }) => {
   const currentDomain = window.location.hostname;
@@ -69,6 +70,10 @@ const Page = ({ params }) => {
     const textToCopy = document.getElementById("shortUrl").innerText;
     navigator.clipboard.writeText(textToCopy).then(
       () => {
+        var input = document.getElementById("textInput");
+        input.select();
+        input.classList.add("highlight");
+        input.blur();
         toast.success(`Text copied to clipboard.`, {
           position: "top-right",
           autoClose: 5000,
@@ -78,8 +83,11 @@ const Page = ({ params }) => {
           draggable: true,
           progress: undefined,
           theme: "light",
-        });
-      },
+        }
+        setTimeout(function() {
+          input.classList.remove("highlight");
+        }, 2000);
+      );},
       (err) => {
         toast.error(`Failed to copy the text: ${err}`, {
           position: "top-right",
