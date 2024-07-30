@@ -71,10 +71,6 @@ const Page = ({ params }) => {
   const textToCopy = document.getElementById("shortUrl").innerText;
   navigator.clipboard.writeText(textToCopy).then(
     () => {
-      var input = document.getElementById("textInput");
-      input.select();
-      input.classList.add("highlight");
-      input.blur();
       toast.success(`Text copied to clipboard.`, {
         position: "top-right",
         autoClose: 5000,
@@ -85,9 +81,6 @@ const Page = ({ params }) => {
         progress: undefined,
         theme: "light",
       });
-      setTimeout(() => {
-        input.classList.remove("highlight");
-      }, 2000);
     },
     (err) => {
       toast.error(`Failed to copy the text: ${err}`, {
