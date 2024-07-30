@@ -65,43 +65,45 @@ const Page = ({ params }) => {
     };
     fetchUrl();
   }, [status, session]);
+
   const handleCopyShortUrl = (e) => {
-    e.preventDefault();
-    const textToCopy = document.getElementById("shortUrl").innerText;
-    navigator.clipboard.writeText(textToCopy).then(
-      () => {
-        var input = document.getElementById("textInput");
-        input.select();
-        input.classList.add("highlight");
-        input.blur();
-        toast.success(`Text copied to clipboard.`, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        }
-        setTimeout(function() {
-          input.classList.remove("highlight");
-        }, 2000);
-      );},
-      (err) => {
-        toast.error(`Failed to copy the text: ${err}`, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }
-    );
-  };
+  e.preventDefault();
+  const textToCopy = document.getElementById("shortUrl").innerText;
+  navigator.clipboard.writeText(textToCopy).then(
+    () => {
+      var input = document.getElementById("textInput");
+      input.select();
+      input.classList.add("highlight");
+      input.blur();
+      toast.success(`Text copied to clipboard.`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      setTimeout(() => {
+        input.classList.remove("highlight");
+      }, 2000);
+    },
+    (err) => {
+      toast.error(`Failed to copy the text: ${err}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  );
+};
+
 
   const handleToggleEdit = (e) => {
     e.preventDefault();
