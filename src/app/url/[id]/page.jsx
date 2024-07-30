@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
-import "../globals.css";
+import "@/globals.css";
 
 const Page = ({ params }) => {
   const currentDomain = window.location.hostname;
